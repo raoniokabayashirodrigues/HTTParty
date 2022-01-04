@@ -1,0 +1,35 @@
+---
+- title: Senha incorreta
+  payload:
+    email: betao.rodriguess@gmail.com
+    password: '123465'
+  code: 401
+  error: Unauthorized
+- title: Usuário não existe
+  payload:
+    email: 404.rodriguess@gmail.com
+    password: '123465'
+  code: 401
+  error: Unauthorized
+- title: Email em branco
+  payload:
+    email: ''
+    password: '123465'
+  code: 412
+  error: required email
+- title: Senha em branco
+  payload:
+    email: 404.rodriguess@gmail.com
+    password: ''
+  code: 412
+  error: required password
+- title: Sem o campo email
+  payload:
+    password: '123465'
+  code: 412
+  error: required email
+- title: Sem o campo senha
+  payload:
+    email: 404.rodriguess@gmail.com
+  code: 412
+  error: required password
