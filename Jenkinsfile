@@ -23,6 +23,7 @@ pipeline {
     post {
         always {
             junit 'logs/report.xml'
+            allure includeProperties: false, jdk: '', results: [[path: 'reports/allure-results/']]
         }
     }
 }
