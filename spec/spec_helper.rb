@@ -2,6 +2,7 @@ require_relative "routes/sessions"
 require_relative "routes/equipos"
 require_relative "routes/signup"
 require_relative "routes/base_api"
+require "allure-rspec"
 
 require_relative "helpers"
 require_relative "libs/mongo"
@@ -34,4 +35,16 @@ RSpec.configure do |config|
     MongoDB.new.drop_danger
     MongoDB.new.insert_user(users)
   end
+end
+
+RSpec.configure do |config|
+  config.formatter = AllureRspecFormatter
+end
+
+AllureRspec.configure do |config|
+  config.results_directory = "report"
+  config.clean_results_directory = true
+  config.logging_level = Logger::INFO
+  config.logger = Logger.new($stdout, Logger::DEBUG)
+  config.environment = "staging"
 end
