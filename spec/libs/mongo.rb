@@ -1,6 +1,6 @@
 require "mongo"
 
-Mongo::Logger.logger = Logger.new(Dir.pwd + "/spec/logs/mongo.log")
+Mongo::Logger.logger = Logger.new(Dir.pwd + "/logs/mongo.log")
 
 class MongoDB
   attr_accessor :client, :user, :equipos
